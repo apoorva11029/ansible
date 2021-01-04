@@ -1,0 +1,12 @@
+- name: test my new module
+  hosts: localhost
+  tasks:
+  - name: run the new module
+    my_test:
+      name: "Hello"
+      input_file: '/tmp/input.yaml'
+      output_file: 'testoutput.yaml'
+    register: testout
+  - name: dump test output
+    debug:
+      msg: '{{ testout }}'
